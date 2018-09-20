@@ -1,0 +1,34 @@
+Надо проверить где ваще есть нет cent5 cent7 :D
+План(типа блок схема ахах):
+Цикл, в котором мы скриптом аутсайд проверяем есть ли ссыль.
+{
+	Если она есть - тупа флексим.
+	Если её нет - ебашим и записываем, шо ебанули.
+}
+выводим количество ебанутых)
+--
+Пригодится
+Запускать то надо по ssh (в outside coe, lol). $ ssh ПОЛЬЗОВАТЕЛЬ@СЕРВЕР 'bash -s' < СКРИПТ
+https://www.shellhacks.com/ru/ssh-execute-remote-command-script-linux/
+https://habr.com/company/ruvds/blog/325522/
+if [ -e файл ]
+--
+
+#OutSide.sh
+#coe - count of servers without existing default packages
+coe=0
+
+#inside работает
+coe=$(( coe + '. ./InSide.sh' ))
+
+--
+#InSide.sh
+
+if sudo find /usr/local/vesta/data/packages/default.pkg
+then
+echo 0
+#нихуя
+else
+sudo cp -s /usr/local/vesta/data/packages/aero.pkg /usr/local/vesta/data/packages/default.pkg
+echo 1
+fi
